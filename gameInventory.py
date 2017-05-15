@@ -92,22 +92,12 @@ def import_inventory(inventory, filename="import_inventory.csv"):
 # called "export_inventory.csv". The file format is the same plain text
 # with comma separated values (CSV).
 def export_inventory(inventory, filename="export_inventory.csv"):
-
     with open('export_inventory.csv', mode='w') as csv_file:
         write_csv = csv.writer(csv_file, delimiter=',')
-        for key in inventory:
-            write_csv.writerow([key])
-
-
-'''
-    key_list = []
-    for key in inventory:
-        key_list.append(key)
-    print(key_list)
-    with open('export_inventory.csv', mode='w') as csv_file:
-        write_csv = csv.writer(csv_file, delimiter=' ')
-        write_csv.writerow([key_list])
-'''
+        inventory_list = []
+        for key, value in inventory.items():
+            inventory_list += [key]*value
+        write_csv.writerow(inventory_list)
 
 
 inventory = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
