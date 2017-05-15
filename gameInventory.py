@@ -17,7 +17,7 @@ def display_inventory(inventory):
 
 # Adds to the inventory dictionary a list of items from added_items.
 def add_to_inventory(inventory, added_items):
-    for i in range(len(dragon_loot)):
+    for i in range(len(added_items)):
         if added_items[i] in inventory:
             inventory[added_items[i]] += 1
         else:
